@@ -1,15 +1,31 @@
-function getImageCandidatePaths(customer, partNum) {
-  const folder = (customer || "").trim();
-  const cleanPart = (partNum || "").trim();
+function getImageCandidatePaths(item) {
+  const paths = [];
 
-  return [
-    `./Images/${folder}/${folder}${cleanPart}.JPG`,
-    `./Images/${folder}/${folder} ${cleanPart}.JPG`,
-    `./Images/${folder}/${cleanPart}.JPG`,
-    `./Images/${folder}/${folder}${cleanPart}.jpg`,
-    `./Images/${folder}/${cleanPart}.jpg`,
-    `./Images/${folder}/${cleanPart}.png`
-  ];
+  // 1. First priority: Use the direct imagePath property if available
+  if (item.imagePath) {
+    paths.push(item.imagePath);
+    paths.push(item.imagePath.replace(/\\/g, '/')); // convert backslashes if any
+  }
+
+  // 2. Extract fields for dynamic lookup
+  const cust = (getFieldValue(item, 'customer') || "").toString().trim();
+  const partNo = (getFieldValue(item, 'partNo') || "").toString().trim();
+
+  if (cust && partNo) {
+    const custUpper = cust.toUpperCase();
+    const custLower = cust.toLowerCase();
+
+    // Common file extension and folder case variations for GitHub Pages
+    paths.push(`Images/${cust}/${partNo}.jpg`);
+    paths.push(`Images/${cust}/${partNo}.JPG`);
+    paths.push(`Images/${custUpper}/${partNo}.jpg`);
+    paths.push(`Images/${custUpper}/${partNo}.JPG`);
+    paths.push(`Images/${custUpper}/${partNo}.png`);
+    paths.push(`Images/${custLower}/${partNo}.jpg`);
+  }
+
+  // Return unique paths
+  return [...new Set(paths)];
 }
 
 function renderCards(list) {
@@ -24,14 +40,18 @@ function renderCards(list) {
   }
   if (noData) noData.classList.add("hidden");
 
-  list.forEach(p => {
-    const cust = p["Customer Name"] || p["Customer"] || "N/A";
-    const partNo = p["Part No"] || p["Part Number"] || p["PartNo"] || "-";
-    const partName = p["Part Name"] || p["Description"] || "-";
-    const model = p["Model"] || "";
-    const location = p["Location"] || "";
+  // Update total items count in top badge
+  const totalBadge = document.querySelector(".total-badge") || document.getElementById("totalItems");
+  if (totalBadge) totalBadge.textContent = `Total Items: ${list.length}`;
 
-    const paths = getImageCandidatePaths(cust, partNo);
+  list.forEach(p => {
+    const cust = getFieldValue(p, 'customer') || "N/A";
+    const partNo = getFieldValue(p, 'partNo') || "-";
+    const partName = getFieldValue(p, 'partName') || "-";
+    const model = getFieldValue(p, 'model');
+    const location = getFieldValue(p, 'location');
+
+    const paths = getImageCandidatePaths(p);
 
     const card = document.createElement("div");
     card.className = "card";
@@ -48,7 +68,7 @@ function renderCards(list) {
              alt="${partNo}">
       </div>
       <div class="info">
-        <h4 style="margin: 8px 0 4px; font-size: 16px;">${partNo}</h4>
+        <h4 style="margin: 8px 0 4px; font-size: 15px;">${partNo}</h4>
         <p style="margin: 0 0 8px; color: #555; font-size: 13px;">${partName}</p>
         ${location ? `<div style="font-size: 11px; background: #f0f0f0; display: inline-block; padding: 2px 6px; border-radius: 4px;">${location}</div>` : ""}
       </div>
