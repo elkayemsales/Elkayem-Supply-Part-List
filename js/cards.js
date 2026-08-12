@@ -1,30 +1,36 @@
+// Helper function to safely read field values directly
+function getVal(item, keys) {
+  for (let k of keys) {
+    if (item[k] !== undefined && item[k] !== null) return item[k];
+  }
+  return "";
+}
+
 function getImageCandidatePaths(item) {
   const paths = [];
 
-  // 1. First priority: Use the direct imagePath property if available
-  if (item.imagePath) {
-    paths.push(item.imagePath);
-    paths.push(item.imagePath.replace(/\\/g, '/')); // convert backslashes if any
+  // Direct imagePath if provided in JSON
+  const directPath = getVal(item, ["imagePath", "image", "Image Path"]);
+  if (directPath) {
+    paths.push(directPath.replace(/\\/g, '/'));
   }
 
-  // 2. Extract fields for dynamic lookup
-  const cust = (getFieldValue(item, 'customer') || "").toString().trim();
-  const partNo = (getFieldValue(item, 'partNo') || "").toString().trim();
+  const cust = getVal(item, ["Customer Name", "customer", "Customer"]).toString().trim();
+  const partNo = getVal(item, ["Part No", "partNo", "Part Number"]).toString().trim();
 
   if (cust && partNo) {
     const custUpper = cust.toUpperCase();
     const custLower = cust.toLowerCase();
 
-    // Common file extension and folder case variations for GitHub Pages
-    paths.push(`Images/${cust}/${partNo}.jpg`);
-    paths.push(`Images/${cust}/${partNo}.JPG`);
+    // Check uppercase folder (e.g., BNC MOTORS) and exact folder casing
     paths.push(`Images/${custUpper}/${partNo}.jpg`);
     paths.push(`Images/${custUpper}/${partNo}.JPG`);
     paths.push(`Images/${custUpper}/${partNo}.png`);
+    paths.push(`Images/${cust}/${partNo}.jpg`);
+    paths.push(`Images/${cust}/${partNo}.JPG`);
     paths.push(`Images/${custLower}/${partNo}.jpg`);
   }
 
-  // Return unique paths
   return [...new Set(paths)];
 }
 
@@ -45,11 +51,11 @@ function renderCards(list) {
   if (totalBadge) totalBadge.textContent = `Total Items: ${list.length}`;
 
   list.forEach(p => {
-    const cust = getFieldValue(p, 'customer') || "N/A";
-    const partNo = getFieldValue(p, 'partNo') || "-";
-    const partName = getFieldValue(p, 'partName') || "-";
-    const model = getFieldValue(p, 'model');
-    const location = getFieldValue(p, 'location');
+    const cust = getVal(p, ["Customer Name", "customer", "Customer"]) || "N/A";
+    const partNo = getVal(p, ["Part No", "partNo", "Part Number"]) || "-";
+    const partName = getVal(p, ["Part Name", "partName", "Part Description"]) || "-";
+    const model = getVal(p, ["Model", "model"]);
+    const location = getVal(p, ["Location", "location"]);
 
     const paths = getImageCandidatePaths(p);
 
@@ -60,7 +66,7 @@ function renderCards(list) {
       ${model ? `<div class="card-model">Model: ${model}</div>` : ""}
       <div class="card-img-container">
         <img class="card-image" 
-             src="${paths[0]}" 
+             src="${paths[0] || ''}" 
              data-attempts='${JSON.stringify(paths.slice(1))}'
              data-index="0"
              onerror="tryNextImage(this)"
