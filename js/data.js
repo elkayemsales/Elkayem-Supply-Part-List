@@ -1,6 +1,6 @@
 const partsData = [
   {
-    "Customer Name": "BNC motors",
+    "Customer Name": "BNC MOTORS",
     "Model": "Boom",
     "Part Name": "Swing Arm Weld Assembly",
     "Part No": "2A0407A001",
