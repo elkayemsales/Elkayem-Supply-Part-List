@@ -4,7 +4,7 @@ const partsData = [
     "Model": "Boom",
     "Part Name": "Swing Arm Weld Assembly",
     "Part No": "2A0407A001",
-    "imagePath": "https://raw.githubusercontent.com/elkayemsales/ElkayemSupplyingParts/main/Images/AMPERE%20GROUP/AMPERE%20GROUPBFMBK00002.JPG"
+    "imagePath": "BNC MOTORS/2A0407A001.jpg"
   },
   {
     "Customer Name": "HSR TO AMP",
