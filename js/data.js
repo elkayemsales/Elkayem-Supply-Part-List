@@ -4,28 +4,28 @@ const partsData = [
     "Model": "Boom",
     "Part Name": "Swing Arm Weld Assembly",
     "Part No": "2A0407A001",
-    "imagePath": "Images/BNC motors/2A0407A001.jpg"
+    "imagePath": "BNC motors/2A0407A001.jpg"
   },
   {
     "Customer Name": "HSR TO AMP",
     "Model": "PWR",
     "Part Name": "CROSS MEMBER-STL-PC",
     "Part No": "BFTBK00134",
-    "imagePath": "Images/HSR TO AMP/BFTBK00134.jpg"
+    "imagePath": "HSR TO AMP/BFTBK00134.jpg"
   },
   {
     "Customer Name": "HSR TO AMP",
     "Model": "EX/PWR",
     "Part Name": "Zeal Battery Clamp - Zinc Plated - M/Z EX",
     "Part No": "BFTBK00141",
-    "imagePath": "Images/HSR TO AMP/BFTBK00141.jpg"
+    "imagePath": "HSR TO AMP/BFTBK00141.jpg"
   },
   {
     "Customer Name": "HSR TO AMP",
     "Model": "Primus",
     "Part Name": "Primus - Steering Stopper",
     "Part No": "BFMCP00013",
-    "imagePath": "Images/HSR TO AMP/BFMCP00013.jpg"
+    "imagePath": "HSR TO AMP/BFMCP00013.jpg"
   },
   {
     "Customer Name": "HSR TO AMP",
