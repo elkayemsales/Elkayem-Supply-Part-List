@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Excel to JSON Converter</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<style>
+  body { font-family: sans-serif; padding: 20px; }
+  input, button, textarea { margin: 10px 0; padding: 6px; width: 100%; }
+  textarea { height: 300px; }
+</style>
+</head>
+<body>
+<h2>Excel to JSON Converter</h2>
+<input type="file" id="excelFile" accept=".xlsx,.xls">
+<button id="convertBtn">Convert to JSON</button>
+<textarea id="jsonOutput" placeholder="JSON output will appear here..."></textarea>
+
+<script>
+document.getElementById("convertBtn").addEventListener("click", () => {
+  const fileInput = document.getElementById("excelFile");
+  const file = fileInput.files[0];
+  if (!file) {
+    alert("Please select an Excel file.");
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    const data = new Uint8Array(e.target.result);
+    const workbook = XLSX.read(data, { type: "array" });
+    const firstSheetName = workbook.SheetNames[0];
+    const worksheet = workbook.Sheets[firstSheetName];
+    const excelData = XLSX.utils.sheet_to_json(worksheet);
+
+    // Map Excel rows to JSON format with Image Name (uppercase for customer and part name)
+    const jsonOutput = excelData.map(item => {
+      const customerName = (item["Customer Name"] || "").toUpperCase();
+      const partName = (item["Part Name"] || "").toUpperCase();
+      const id = item["id"] || `${customerName}${item["Part No"]||""}`.replace(/\s+/g, "");
+
+      // Ensure Component Wt ends with "kg" (lowercase)
+      let compWt = (item["Component Wt"] || "").toString().trim();
+      if (compWt && !compWt.toLowerCase().endsWith("kg")) compWt += " kg";
+
+      return {
+        id,
+        "Customer Name": item["Customer Name"] || "",
+        "Model": item["Model"] || "",
+        "Part Name": item["Part Name"] || "",
+        "Part No": item["Part No"] || "",
+        "Contribution": item["Contribution"] || "",
+        "Classification": item["Classification"] || "",
+        "Segment Wise": item["Segment Wise"] || "",
+        "Component Wt": compWt,
+        "Image Name": `https://raw.githubusercontent.com/elkayemsales/ElkayemSupplyingParts/main/Images/${encodeURIComponent(customerName)}/${encodeURIComponent(partName)}.jpg`
+      };
+    });
+
+    document.getElementById("jsonOutput").value = JSON.stringify(jsonOutput, null, 2);
+  };
+  reader.readAsArrayBuffer(file);
+});
+</script>
+<!-- External Libraries for PDF Export -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+  <!-- Application Modular Scripts -->
+  <script src="./js/data.js"></script>
+  <script src="./js/nav.js"></script>
+  <script src="./js/cards.js"></script>
+  <script src="./js/zoom.js"></script>
+  <script src="./js/ui.js"></script>
+  <script src="./js/export.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+</html>
+</body>
+</html>
