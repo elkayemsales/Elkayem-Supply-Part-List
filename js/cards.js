@@ -148,13 +148,3 @@ function tryNextImage(img) {
     img.parentElement.innerHTML = `<div class="blinking-part-box">${partNo}</div>`;
   }
 }
-imgElement.onerror = function() {
-    // If AMPERE GROUP failed, try loading from HSR TO AMP before showing blinking text
-    if (this.src.includes('AMPERE%20GROUP')) {
-        this.src = this.src.replace('AMPERE%20GROUP', 'HSR%20TO%20AMP');
-    } else {
-        // Show blinking text fallback
-        this.style.display = 'none';
-        fallbackElement.style.display = 'block';
-    }
-};

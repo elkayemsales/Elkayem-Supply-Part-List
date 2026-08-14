@@ -386,6 +386,27 @@ const partsData = [
   },
   {
     "Customer Name": "AMPERE GROUP",
+    "Model": "NEXUS",
+    "Part Name": "Battery_Top_Mtg_Bkt",
+    "Part No": "VP-000000010844",
+    "imagePath": "Images/AMPERE GROUP/VP-000000010844.jpg"
+  },
+  {
+    "Customer Name": "AMPERE GROUP",
+    "Model": "NEXUS",
+    "Part Name": "Front Inner Panel Mtg Brkt",
+    "Part No": "VP-000000001449",
+    "imagePath": "Images/AMPERE GROUP/VP-000000001449.jpg"
+  },
+  {
+    "Customer Name": "AMPERE GROUP",
+    "Model": "NEXUS",
+    "Part Name": "Pillion_Footrest_Assy_Rh",
+    "Part No": "VP-000000006059",
+    "imagePath": "Images/AMPERE GROUP/VP-000000006059.jpg"
+  },
+  {
+    "Customer Name": "AMPERE GROUP",
     "Model": "MC 100",
     "Part Name": "LOCK MOUNTING BRACKET ASSEMBLY",
     "Part No": "VP-000000055396",
