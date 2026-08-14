@@ -407,6 +407,13 @@ const partsData = [
   },
   {
     "Customer Name": "AMPERE GROUP",
+    "Model": "NEXUS",
+    "Part Name": "Pillion_Footrest_Assy",
+    "Part No": "VP-000000006050",
+    "imagePath": "Images/AMPERE GROUP/VP-000000006050.jpg"
+  },
+  {
+    "Customer Name": "AMPERE GROUP",
     "Model": "MC 100",
     "Part Name": "LOCK MOUNTING BRACKET ASSEMBLY",
     "Part No": "VP-000000055396",
