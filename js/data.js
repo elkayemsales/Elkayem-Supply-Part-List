@@ -1,388 +1,402 @@
 const partsData = [
   {
-    "Customer Name": "BNC MOTORS",
+    "Customer Name": "BNC motors",
     "Model": "Boom",
     "Part Name": "Swing Arm Weld Assembly",
     "Part No": "2A0407A001",
-    "imagePath": "BNC MOTORS/2A0407A001.jpg"
+    "imagePath": "Images/BNC motors/2A0407A001.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "PWR",
     "Part Name": "CROSS MEMBER-STL-PC",
     "Part No": "BFTBK00134",
-    "imagePath": "HSR TO AMP/BFTBK00134.jpg"
+    "imagePath": "Images/AMPERE GROUP/BFTBK00134.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
+    "Model": "PWR",
+    "Part Name": "PANEL MTG BKT LH",
+    "Part No": "VP-000000099116",
+    "imagePath": "Images/AMPERE GROUP/VP-000000099116.jpg"
+  },
+  {
+    "Customer Name": "AMPERE GROUP",
+    "Model": "3KW",
+    "Part Name": "PANEL MOUNT BKT RH",
+    "Part No": "VP-000000099117",
+    "imagePath": "Images/AMPERE GROUP/VP-000000099117.jpg"
+  },
+  {
+    "Customer Name": "AMPERE GROUP",
     "Model": "EX/PWR",
     "Part Name": "Zeal Battery Clamp - Zinc Plated - M/Z EX",
     "Part No": "BFTBK00141",
-    "imagePath": "HSR TO AMP/BFTBK00141.jpg"
+    "imagePath": "Images/AMPERE GROUP/BFTBK00141.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "Primus",
     "Part Name": "Primus - Steering Stopper",
     "Part No": "BFMCP00013",
-    "imagePath": "HSR TO AMP/BFMCP00013.jpg"
+    "imagePath": "Images/AMPERE GROUP/BFMCP00013.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "Primus",
     "Part Name": "Primus - Foot Board Mounting Bracket Assembly-03",
     "Part No": "BFMCP00030",
-    "imagePath": "Images/HSR TO AMP/BFMCP00030.jpg"
+    "imagePath": "Images/AMPERE GROUP/BFMCP00030.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "Primus",
     "Part Name": "Primus - Luggage Box Mount Bracket Assembly",
     "Part No": "BFMCP00026",
-    "imagePath": "Images/HSR TO AMP/BFMCP00026.jpg"
+    "imagePath": "Images/AMPERE GROUP/BFMCP00026.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "Primus",
     "Part Name": "Primus - Grab Handle Rear Mount Bracket Assembly",
     "Part No": "BFMCP00001",
-    "imagePath": "Images/HSR TO AMP/BFMCP00001.jpg"
+    "imagePath": "Images/AMPERE GROUP/BFMCP00001.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "Primus",
     "Part Name": "Primus - Battery Guard Bracket LH Assembly",
     "Part No": "BFMCP00038",
-    "imagePath": "Images/HSR TO AMP/BFMCP00038.jpg"
+    "imagePath": "Images/AMPERE GROUP/BFMCP00038.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "Primus",
     "Part Name": "Primus - Side Stand Support Bracket Assembly",
     "Part No": "BFMCP00039",
-    "imagePath": "Images/HSR TO AMP/BFMCP00039.jpg"
+    "imagePath": "Images/AMPERE GROUP/BFMCP00039.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "Primus",
     "Part Name": "Primus - Foot Board Bracket-01",
     "Part No": "BFMCP00023",
-    "imagePath": "Images/HSR TO AMP/BFMCP00023.jpg"
+    "imagePath": "Images/AMPERE GROUP/BFMCP00023.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "Primus",
     "Part Name": "Primus - Front Chassis Bracket",
     "Part No": "BFMCP00027",
-    "imagePath": "Images/HSR TO AMP/BFMCP00027.jpg"
+    "imagePath": "Images/AMPERE GROUP/BFMCP00027.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "Primus",
     "Part Name": "Primus - Panel Mount Bracket LH",
     "Part No": "BFMCP00033",
-    "imagePath": "Images/HSR TO AMP/BFMCP00033.jpg"
+    "imagePath": "Images/AMPERE GROUP/BFMCP00033.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "Primus",
     "Part Name": "Primus - Panel Mount Bracket RH",
     "Part No": "BFMCP00034",
-    "imagePath": "Images/HSR TO AMP/BFMCP00034.jpg"
+    "imagePath": "Images/AMPERE GROUP/BFMCP00034.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "Primus",
     "Part Name": "Primus - Rear Cover Bracket",
     "Part No": "BFMCP00049",
-    "imagePath": "Images/HSR TO AMP/BFMCP00049.jpg"
+    "imagePath": "Images/AMPERE GROUP/BFMCP00049.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "Primus",
     "Part Name": "Primus - Rear Reinforcement Bracket",
     "Part No": "BFMCP00017",
-    "imagePath": "Images/HSR TO AMP/BFMCP00017.jpg"
+    "imagePath": "Images/AMPERE GROUP/BFMCP00017.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "Primus",
     "Part Name": "Primus - Head Tube Connecting Bracket-01",
     "Part No": "BFMCP00021",
-    "imagePath": "Images/HSR TO AMP/BFMCP00021.jpg"
+    "imagePath": "Images/AMPERE GROUP/BFMCP00021.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "Primus",
     "Part Name": "Primus - Head Tube Connecting Bracket-02",
     "Part No": "BFMCP00022",
-    "imagePath": "Images/HSR TO AMP/BFMCP00022.jpg"
+    "imagePath": "Images/AMPERE GROUP/BFMCP00022.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "Primus",
     "Part Name": "Primus - Side Stand Support Plate",
     "Part No": "BFMCP00040",
-    "imagePath": "Images/HSR TO AMP/BFMCP00040.jpg"
+    "imagePath": "Images/AMPERE GROUP/BFMCP00040.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "Primus",
     "Part Name": "Primus - Head Tube Reinforcement Bracket",
     "Part No": "BFMCP00016",
-    "imagePath": "Images/HSR TO AMP/BFMCP00016.jpg"
+    "imagePath": "Images/AMPERE GROUP/BFMCP00016.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "Primus",
     "Part Name": "Primus - Rear Fender Support Bracket",
     "Part No": "BFMCP00046",
-    "imagePath": "Images/HSR TO AMP/BFMCP00046.jpg"
+    "imagePath": "Images/AMPERE GROUP/BFMCP00046.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "Primus",
     "Part Name": "Primus - Wiring Routing Bracket 01",
     "Part No": "BFMCP00002",
-    "imagePath": "Images/HSR TO AMP/BFMCP00002.jpg"
+    "imagePath": "Images/AMPERE GROUP/BFMCP00002.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "Primus",
     "Part Name": "Primus - Main Tube",
     "Part No": "BFMCP00014",
-    "imagePath": "Images/HSR TO AMP/BFMCP00014.jpg"
+    "imagePath": "Images/AMPERE GROUP/BFMCP00014.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "Primus",
     "Part Name": "Primus - Rear Lateral Member 01",
     "Part No": "BFMCP00018",
-    "imagePath": "Images/HSR TO AMP/BFMCP00018.jpg"
+    "imagePath": "Images/AMPERE GROUP/BFMCP00018.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "Primus",
     "Part Name": "Primus - Rear Reinforcement Bracket 01 LH & RH",
     "Part No": "BFMCP00035",
-    "imagePath": "Images/HSR TO AMP/BFMCP00035.jpg"
+    "imagePath": "Images/AMPERE GROUP/BFMCP00035.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "Primus",
     "Part Name": "Primus - Front Handlebar Cover Bkt Assembly",
     "Part No": "BFMCP00011",
-    "imagePath": "Images/HSR TO AMP/BFMCP00011.jpg"
+    "imagePath": "Images/AMPERE GROUP/BFMCP00011.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "Primus",
     "Part Name": "Primus - Foot Board Mounting Bracket Assembly-02",
     "Part No": "BFMCP00032",
-    "imagePath": "Images/HSR TO AMP/BFMCP00032.jpg"
+    "imagePath": "Images/AMPERE GROUP/BFMCP00032.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "Primus",
     "Part Name": "Primus - C Lock Mount Assembly",
     "Part No": "BFMCP00036",
-    "imagePath": "Images/HSR TO AMP/BFMCP00036.jpg"
+    "imagePath": "Images/AMPERE GROUP/BFMCP00036.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "Primus",
     "Part Name": "Primus - Battery Guard Bracket RH Assembly",
     "Part No": "BFMCP00050",
-    "imagePath": "Images/HSR TO AMP/BFMCP00050.jpg"
+    "imagePath": "Images/AMPERE GROUP/BFMCP00050.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "Primus",
     "Part Name": "Primus - Rear Fender Mount Bracket Assembly LH",
     "Part No": "BFMCP00037",
-    "imagePath": "Images/HSR TO AMP/BFMCP00037.jpg"
+    "imagePath": "Images/AMPERE GROUP/BFMCP00037.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "Primus",
     "Part Name": "Primus - Head Tube (BFMCP00010)",
     "Part No": "BFMCP00010",
-    "imagePath": "Images/HSR TO AMP/BFMCP00010.jpg"
+    "imagePath": "Images/AMPERE GROUP/BFMCP00010.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "Primus",
     "Part Name": "Primus - Left Side Chassis Member (BFMCP00019)",
     "Part No": "BFMCP00019",
-    "imagePath": "Images/HSR TO AMP/BFMCP00019.jpg"
+    "imagePath": "Images/AMPERE GROUP/BFMCP00019.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "Primus",
     "Part Name": "Primus - Right Side Chassis Member (BFMCP00020)",
     "Part No": "BFMCP00020",
-    "imagePath": "Images/HSR TO AMP/BFMCP00020.jpg"
+    "imagePath": "Images/AMPERE GROUP/BFMCP00020.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "Primus",
     "Part Name": "Primus - Front Lateral Member (BFMCP00015)",
     "Part No": "BFMCP00015",
-    "imagePath": "Images/HSR TO AMP/BFMCP00015.jpg"
+    "imagePath": "Images/AMPERE GROUP/BFMCP00015.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "Primus",
     "Part Name": "Primus - VIN Number Mtg Bkt",
     "Part No": "BFMCP00003",
-    "imagePath": "Images/HSR TO AMP/BFMCP00003.jpg"
+    "imagePath": "Images/AMPERE GROUP/BFMCP00003.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "MC 100",
     "Part Name": "SUSPENSION MOUNT BKT RH ASSY_MAGNUS 100",
     "Part No": "VP-000000030987",
-    "imagePath": "Images/HSR TO AMP/VP-000000030987.jpg"
+    "imagePath": "Images/AMPERE GROUP/VP-000000030987.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "MC 100",
     "Part Name": "SUSPENSION MOUNT BKT LH ASSY_MAGNUS 100",
     "Part No": "VP-000000030988",
-    "imagePath": "Images/HSR TO AMP/VP-000000030988.jpg"
+    "imagePath": "Images/AMPERE GROUP/VP-000000030988.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "MC 100",
     "Part Name": "DC-DC CONVERTOR MTG BKT MAGNUS 100",
     "Part No": "VP-000000030989",
-    "imagePath": "Images/HSR TO AMP/VP-000000030989.jpg"
+    "imagePath": "Images/AMPERE GROUP/VP-000000030989.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "MC 100",
     "Part Name": "MCU MTG BKT MAGNUS 100",
     "Part No": "VP-000000030990",
-    "imagePath": "Images/HSR TO AMP/VP-000000030990.jpg"
+    "imagePath": "Images/AMPERE GROUP/VP-000000030990.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "MC 100",
     "Part Name": "PILLION FOOTREST SUPPORT BKT",
     "Part No": "VP-000000042606",
-    "imagePath": "Images/HSR TO AMP/VP-000000042606.jpg"
+    "imagePath": "Images/AMPERE GROUP/VP-000000042606.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "MC 100",
     "Part Name": "REAR LFR GUSSET",
     "Part No": "VP-000000042621",
-    "imagePath": "Images/HSR TO AMP/VP-000000042621.jpg"
+    "imagePath": "Images/AMPERE GROUP/VP-000000042621.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "MC 100",
     "Part Name": "PILLION FOOTREST MTG ASSY LH",
     "Part No": "VP-000000042627",
-    "imagePath": "Images/HSR TO AMP/VP-000000042627.jpg"
+    "imagePath": "Images/AMPERE GROUP/VP-000000042627.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "MC 100",
     "Part Name": "REAR LFR GUSSET RH",
     "Part No": "VP-000000042629",
-    "imagePath": "Images/HSR TO AMP/VP-000000042629.jpg"
+    "imagePath": "Images/AMPERE GROUP/VP-000000042629.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "MC 100",
     "Part Name": "PILLION FOOTREST MTG ASSY RH",
     "Part No": "VP-000000042630",
-    "imagePath": "Images/HSR TO AMP/VP-000000042630.jpg"
+    "imagePath": "Images/AMPERE GROUP/VP-000000042630.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "MC 100",
     "Part Name": "GRAB HANDLE BKT LH ASSY",
     "Part No": "VP-000000042633",
-    "imagePath": "Images/HSR TO AMP/VP-000000042633.jpg"
+    "imagePath": "Images/AMPERE GROUP/VP-000000042633.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "MC 100",
     "Part Name": "GRAB HANDLE BKT RH ASSY",
     "Part No": "VP-000000042635",
-    "imagePath": "Images/HSR TO AMP/VP-000000042635.jpg"
+    "imagePath": "Images/AMPERE GROUP/VP-000000042635.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "MC 100",
     "Part Name": "PILLION FOOTREST SUPPORT BKT RH",
     "Part No": "VP-000000042640",
-    "imagePath": "Images/HSR TO AMP/VP-000000042640.jpg"
+    "imagePath": "Images/AMPERE GROUP/VP-000000042640.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "MC 100",
     "Part Name": "LFR TUBE ASSY LH",
     "Part No": "VP-000000042643",
-    "imagePath": "Images/HSR TO AMP/VP-000000042643.jpg"
+    "imagePath": "Images/AMPERE GROUP/VP-000000042643.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "MC 100",
     "Part Name": "LFR TUBE ASSY RH",
     "Part No": "VP-000000042644",
-    "imagePath": "Images/HSR TO AMP/VP-000000042644.jpg"
+    "imagePath": "Images/AMPERE GROUP/VP-000000042644.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "MC 100",
     "Part Name": "REAR DB MTG BKT ASSY",
     "Part No": "VP-000000042646",
-    "imagePath": "Images/HSR TO AMP/VP-000000042646.jpg"
+    "imagePath": "Images/AMPERE GROUP/VP-000000042646.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "MC 100",
     "Part Name": "SWINGARM MTG BKT ASSY LH",
     "Part No": "VP-000000042648",
-    "imagePath": "Images/HSR TO AMP/VP-000000042648.jpg"
+    "imagePath": "Images/AMPERE GROUP/VP-000000042648.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "MC 100",
     "Part Name": "SWINGARM MTG BKT ASSY RH",
     "Part No": "VP-000000042649",
-    "imagePath": "Images/HSR TO AMP/VP-000000042649.jpg"
+    "imagePath": "Images/AMPERE GROUP/VP-000000042649.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "MC 100",
     "Part Name": "AUX BATTERY AND HORN MTG BKT ASSY",
     "Part No": "VP-000000042722",
-    "imagePath": "Images/HSR TO AMP/VP-000000042722.jpg"
+    "imagePath": "Images/AMPERE GROUP/VP-000000042722.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "MC 100",
     "Part Name": "CLAMP_WIRING_HARNESS",
     "Part No": "VP-000000017134",
-    "imagePath": "Images/HSR TO AMP/VP-000000017134.jpg"
+    "imagePath": "Images/AMPERE GROUP/VP-000000017134.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "MC 100",
     "Part Name": "LOCK MOUNTING BRACKET ASSEMBLY",
     "Part No": "VP-000000055396",
-    "imagePath": "Images/HSR TO AMP/VP-000000055396.jpg"
+    "imagePath": "Images/AMPERE GROUP/VP-000000055396.jpg"
   },
   {
-    "Customer Name": "HSR TO AMP",
+    "Customer Name": "AMPERE GROUP",
     "Model": "MC 100",
     "Part Name": "REAR SUSPENSION LATERAL TUBE ASSY",
     "Part No": "VP-000000042768",
-    "imagePath": "Images/HSR TO AMP/VP-000000042768.jpg"
+    "imagePath": "Images/AMPERE GROUP/VP-000000042768.jpg"
   },
   {
     "Customer Name": "Magtorq",

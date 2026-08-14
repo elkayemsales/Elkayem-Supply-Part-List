@@ -1,4 +1,28 @@
-// Helper function to safely read field values
+// Dynamically inject blinking animation style into the document
+if (!document.getElementById("blinking-image-style")) {
+  const style = document.createElement("style");
+  style.id = "blinking-image-style";
+  style.innerHTML = `
+    @keyframes pulseBlink {
+      0% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.3; transform: scale(0.98); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    .blinking-part-box {
+      animation: pulseBlink 1.2s ease-in-out infinite;
+      color: #d32f2f;
+      font-weight: bold;
+      font-size: 15px;
+      letter-spacing: 0.5px;
+      text-align: center;
+      padding: 10px;
+      word-break: break-all;
+    }
+  `;
+  document.head.appendChild(style);
+}
+
+// Helper function to safely read field values with fallback keys
 function getVal(item, keys) {
   if (!item) return "";
   for (let k of keys) {
@@ -7,12 +31,29 @@ function getVal(item, keys) {
   return "";
 }
 
+// Alias to prevent ReferenceError if main.js calls getFieldValue
+function getFieldValue(item, field) {
+  if (!item) return "";
+  const mapping = {
+    'customer': ["Customer Name", "customer", "Customer", "CUSTOMER"],
+    'partNo': ["Part No", "partNo", "Part Number", "PART NO"],
+    'partName': ["Part Name", "partName", "Part Description", "PART NAME"],
+    'model': ["Model", "model", "MODEL"],
+    'location': ["Location", "location", "LOCATION"]
+  };
+  return getVal(item, mapping[field] || [field]);
+}
+
 function getImageCandidatePaths(item) {
   const paths = [];
 
   const directPath = getVal(item, ["imagePath", "image", "Image Path"]);
   if (directPath) {
-    paths.push(directPath.replace(/\\/g, '/'));
+    const cleanPath = directPath.replace(/\\/g, '/');
+    paths.push(cleanPath);
+    if (!cleanPath.startsWith("Images/")) {
+      paths.push(`Images/${cleanPath}`);
+    }
   }
 
   const cust = getVal(item, ["Customer Name", "customer", "Customer"]).toString().trim();
@@ -20,41 +61,42 @@ function getImageCandidatePaths(item) {
 
   if (cust && partNo) {
     const custUpper = cust.toUpperCase();
-    const custLower = cust.toLowerCase();
 
-    // Folders directly in root vs Images subfolder
-    paths.push(`${custUpper}/${partNo}.jpg`);
-    paths.push(`${custUpper}/${partNo}.JPG`);
-    paths.push(`${cust}/${partNo}.jpg`);
+    // 1. Matches your exact folder structure: Images/AMPERE GROUP/AMPERE GROUPBFMCP00001.JPG
+    paths.push(`Images/${custUpper}/${custUpper}${partNo}.JPG`);
+    paths.push(`Images/${custUpper}/${custUpper}${partNo}.jpg`);
+    paths.push(`Images/${cust}/${cust}${partNo}.jpg`);
+    paths.push(`Images/${cust}/${cust}${partNo}.JPG`);
+
+    // 2. Standard pattern fallback: Images/AMPERE GROUP/BFMCP00001.jpg
     paths.push(`Images/${custUpper}/${partNo}.jpg`);
     paths.push(`Images/${custUpper}/${partNo}.JPG`);
     paths.push(`Images/${cust}/${partNo}.jpg`);
+    paths.push(`Images/${custUpper}/${partNo}.png`);
+
+    // 3. Root folder fallbacks
+    paths.push(`${custUpper}/${custUpper}${partNo}.jpg`);
+    paths.push(`${custUpper}/${partNo}.jpg`);
   }
 
   return [...new Set(paths)];
 }
 
 function renderCards(list) {
-  // Automatically find container by trying common ID names
   const container = document.getElementById("partsContainer") || 
                     document.getElementById("cardsContainer") || 
                     document.getElementById("partsGrid") ||
                     document.querySelector(".cards-grid") ||
                     document.querySelector(".grid-container");
 
-  if (!container) {
-    console.error("ERROR: Could not find HTML container element for cards. Check your index.html div ID.");
-    return;
-  }
-
+  if (!container) return;
   container.innerHTML = "";
 
   if (!list || list.length === 0) {
-    container.innerHTML = '<div style="padding:40px; text-align:center; color:#666;">No matching parts found</div>';
+    container.innerHTML = '<div style="padding:40px; text-align:center; color:#666; width:100%;">No matching parts found</div>';
     return;
   }
 
-  // Update total count badge if present
   const totalBadge = document.querySelector(".total-badge") || document.getElementById("totalItems");
   if (totalBadge) totalBadge.textContent = `Total Items: ${list.length}`;
 
@@ -73,12 +115,14 @@ function renderCards(list) {
     card.innerHTML = `
       <div style="font-weight:bold; color:#0d47a1; font-size:13px;">${cust}</div>
       ${model ? `<div style="font-size:12px; color:#666; margin-bottom:8px;">Model: ${model}</div>` : ""}
-      <div style="height:160px; background:#f9f9f9; display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius:4px; margin-bottom:8px;">
+      <div class="card-img-container" style="height:160px; background:#f9f9f9; display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius:4px; margin-bottom:8px;">
         <img src="${paths[0] || ''}" 
              data-attempts='${JSON.stringify(paths.slice(1))}'
              data-index="0"
+             data-partno="${partNo}"
              onerror="tryNextImage(this)"
-             style="max-height:100%; max-width:100%; object-fit:contain;"
+             onclick="if(window.openZoom) openZoom(this.src)"
+             style="max-height:100%; max-width:100%; object-fit:contain; cursor:pointer;"
              alt="${partNo}">
       </div>
       <div>
@@ -93,12 +137,14 @@ function renderCards(list) {
 function tryNextImage(img) {
   const attempts = JSON.parse(img.getAttribute('data-attempts') || '[]');
   const idx = parseInt(img.getAttribute('data-index') || '0');
+  const partNo = img.getAttribute('data-partno') || 'NO IMAGE';
 
   if (idx < attempts.length) {
     img.setAttribute('data-index', idx + 1);
     img.src = attempts[idx];
   } else {
     img.onerror = null;
-    img.parentElement.innerHTML = '<span style="color:#aaa; font-size:12px;">No Image</span>';
+    // Replace missing image with blinking Part Number text
+    img.parentElement.innerHTML = `<div class="blinking-part-box">${partNo}</div>`;
   }
 }
