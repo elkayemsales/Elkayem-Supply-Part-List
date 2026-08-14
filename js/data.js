@@ -414,6 +414,76 @@ const partsData = [
   },
   {
     "Customer Name": "AMPERE GROUP",
+    "Model": "NEXUS",
+    "Part Name": "Hose_Mtg_Bkt",
+    "Part No": "VP-000000004000",
+    "imagePath": "Images/AMPERE GROUP/VP-000000004000.jpg"
+  },
+  {
+    "Customer Name": "AMPERE GROUP",
+    "Model": "NEXUS",
+    "Part Name": "Rear_Cable_Clamp",
+    "Part No": "VP-000000010178",
+    "imagePath": "Images/AMPERE GROUP/VP-000000010178.jpg"
+  },
+  {
+    "Customer Name": "AMPERE GROUP",
+    "Model": "NEXUS",
+    "Part Name": "Fender_Bkt_Fr_Assy",
+    "Part No": "VP-000000010367",
+    "imagePath": "Images/AMPERE GROUP/VP-000000010367.jpg"
+  },
+  {
+    "Customer Name": "AMPERE GROUP",
+    "Model": "NEXUS",
+    "Part Name": "Rear_Fender_Bracket",
+    "Part No": "VP-000000006416",
+    "imagePath": "Images/AMPERE GROUP/VP-000000006416.jpg"
+  },
+  {
+    "Customer Name": "AMPERE GROUP",
+    "Model": "3KW",
+    "Part Name": "FRONT FOOT BOARD MTG BKT ASSY",
+    "Part No": "VP-000000099113",
+    "imagePath": "Images/AMPERE GROUP/VP-000000099113.jpg"
+  },
+  {
+    "Customer Name": "AMPERE GROUP",
+    "Model": "3KW",
+    "Part Name": "PANEL MTG BKT LH",
+    "Part No": "VP-000000099118",
+    "imagePath": "Images/AMPERE GROUP/VP-000000099118.jpg"
+  },
+  {
+    "Customer Name": "AMPERE GROUP",
+    "Model": "3KW",
+    "Part Name": "LEFT SIDE CHASSIS MEMBER",
+    "Part No": "VP-000000099178",
+    "imagePath": "Images/AMPERE GROUP/VP-000000099178.jpg"
+  },
+  {
+    "Customer Name": "AMPERE GROUP",
+    "Model": "3KW",
+    "Part Name": "RIGHT SIDE CHASSIS MEMBER",
+    "Part No": "VP-000000099179",
+    "imagePath": "Images/AMPERE GROUP/VP-000000099179.jpg"
+  },
+  {
+    "Customer Name": "AMPERE GROUP",
+    "Model": "COMMON",
+    "Part Name": "Mag Rear Fender Brkt Weldnut Assy",
+    "Part No": "VP-000000100399",
+    "imagePath": "Images/AMPERE GROUP/VP-000000100399.jpg"
+  },
+  {
+    "Customer Name": "AMPERE GROUP",
+    "Model": "FE13B",
+    "Part Name": "C Lock Mount Assembly",
+    "Part No": "VP-000000103487",
+    "imagePath": "Images/AMPERE GROUP/VP-000000103487.jpg"
+  },
+  {
+    "Customer Name": "AMPERE GROUP",
     "Model": "MC 100",
     "Part Name": "LOCK MOUNTING BRACKET ASSEMBLY",
     "Part No": "VP-000000055396",
