@@ -470,6 +470,13 @@ const partsData = [
   },
   {
     "Customer Name": "AMPERE GROUP",
+    "Model": "Neo",
+    "Part Name": "Swingarm - Neo",
+    "Part No": "VP-000000094278",
+    "imagePath": "AMPERE GROUP/VP-000000094278.jpg"
+  },
+  {
+    "Customer Name": "AMPERE GROUP",
     "Model": "COMMON",
     "Part Name": "Mag Rear Fender Brkt Weldnut Assy",
     "Part No": "VP-000000100399",
