@@ -47,52 +47,36 @@ function getFieldValue(item, field) {
 function getImageCandidatePaths(item) {
   const paths = [];
 
-  // 1. Process direct path from JSON / Column G export
   const directPath = getVal(item, ["imagePath", "image", "Image Path"]);
   if (directPath) {
     const cleanPath = directPath.replace(/\\/g, '/');
-    const lastDot = cleanPath.lastIndexOf('.');
-    
-    if (lastDot !== -1) {
-      const base = cleanPath.substring(0, lastDot);
-      const targetPaths = cleanPath.startsWith("Images/") ? [cleanPath] : [cleanPath, `Images/${cleanPath}`];
-      
-      targetPaths.forEach(p => {
-        const b = p.substring(0, p.lastIndexOf('.'));
-        // Try all casing extensions for direct path
-        paths.push(`${b}.jpg`, `${b}.JPG`, `${b}.png`, `${b}.PNG`, `${b}.jpeg`);
-      });
+    paths.push(cleanPath);
+    if (!cleanPath.startsWith("Images/")) {
+      paths.push(`Images/${cleanPath}`);
     }
   }
 
-  // 2. Generate dynamic fallback variations based on Customer & Part Number
   const cust = getVal(item, ["Customer Name", "customer", "Customer"]).toString().trim();
   const partNo = getVal(item, ["Part No", "partNo", "Part Number"]).toString().trim();
 
   if (cust && partNo) {
     const custUpper = cust.toUpperCase();
-    const extensions = [".jpg", ".JPG", ".png", ".PNG", ".jpeg"];
 
-    const nameVariants = [
-      `${custUpper}${partNo}`,
-      partNo,
-      `${custUpper} ${partNo}`,
-      `${cust}${partNo}`
-    ];
+    // 1. Matches your exact folder structure: Images/AMPERE GROUP/AMPERE GROUPBFMCP00001.JPG
+    paths.push(`Images/${custUpper}/${custUpper}${partNo}.JPG`);
+    paths.push(`Images/${custUpper}/${custUpper}${partNo}.jpg`);
+    paths.push(`Images/${cust}/${cust}${partNo}.jpg`);
+    paths.push(`Images/${cust}/${cust}${partNo}.JPG`);
 
-    const folderVariants = [
-      `Images/${custUpper}`,
-      `Images/${cust}`,
-      `${custUpper}`
-    ];
+    // 2. Standard pattern fallback: Images/AMPERE GROUP/BFMCP00001.jpg
+    paths.push(`Images/${custUpper}/${partNo}.jpg`);
+    paths.push(`Images/${custUpper}/${partNo}.JPG`);
+    paths.push(`Images/${cust}/${partNo}.jpg`);
+    paths.push(`Images/${custUpper}/${partNo}.png`);
 
-    folderVariants.forEach(folder => {
-      nameVariants.forEach(name => {
-        extensions.forEach(ext => {
-          paths.push(`${folder}/${name}${ext}`);
-        });
-      });
-    });
+    // 3. Root folder fallbacks
+    paths.push(`${custUpper}/${custUpper}${partNo}.jpg`);
+    paths.push(`${custUpper}/${partNo}.jpg`);
   }
 
   return [...new Set(paths)];
@@ -160,6 +144,7 @@ function tryNextImage(img) {
     img.src = attempts[idx];
   } else {
     img.onerror = null;
+    // Replace missing image with blinking Part Number text
     img.parentElement.innerHTML = `<div class="blinking-part-box">${partNo}</div>`;
   }
 }
